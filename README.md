@@ -73,33 +73,27 @@ The dataset is divided into three parts:
 All steps are documented and executed in `final.ipynb`:
 
 ### 1. Load Data and Exploratory Data Analysis (EDA):
-
 - Load the dataset into the environment.
 - Conduct EDA to visualize and analyze the distribution of positive and negative reviews, uncovering insights about the data.
 
 ### 2. NLTK Baseline:
-
 - Perform sentiment analysis using the VADER lexicon from the NLTK library.
 - Use the VADER results as a benchmark for comparison against transformer-based models.
 
 ### 3. Pre-Tuned Model Evaluations:
-
 - Evaluate the performance of pre-trained transformer models (**RoBERTa**, **DistilBERT**, **BERT**) without fine-tuning on the dataset.
 - Compare their outputs to pre-trained models tested on other datasets for broader insights.
 
 ### 4. Data and Model Preparation:
-
-- **Dataset Class**: Prepare a reusable class for efficient data management and preprocessing.
-- **DataLoaders**: Create DataLoaders for batch processing, ensuring efficient memory and computational resource usage.
-- **SentimentClassifier Class**: Build a custom class for sentiment analysis models with the following features:
+- `Dataset Class`: Prepare a reusable class for efficient data management and preprocessing.
+- `DataLoaders`: Create DataLoaders for batch processing, ensuring efficient memory and computational resource usage.
+- `SentimentClassifier Class`: Build a custom class for sentiment analysis models with the following features:
     - Dropout for regularization.
     - A fully connected layer for consistent output across models.
-- **Training and Validation Functions**: Implement functions to train and validate models effectively.
-- **Plotting Function**: Create a utility to plot accuracy and loss for visual analysis of training progress.
-
+- `Training and Validation Functions`: Implement functions to train and validate models effectively.
+- `Plotting Function`: Create a utility to plot accuracy and loss for visual analysis of training progress.
 
 ### 5. Training and Validation:
-
 - Set hyperparameters for tuning, such as learning rate, batch size, and epochs.
 - Train and validate the models (**RoBERTa**, **DistilBERT**, **BERT**) on the dataset.
 - Generate and plot:
@@ -107,11 +101,9 @@ All steps are documented and executed in `final.ipynb`:
     - Validation Metrics: Accuracy and loss over epochs.
 
 ### 6. Testing:
-
 - Test all trained models on the test set to evaluate real-world performance.
 
 ### 7. Model Comparison:
-
 - Assess the performance of each model based on the following metrics:
     -  Accuracy: Overall correctness of predictions.
     - Precision: Model's ability to correctly identify positive cases.
@@ -131,14 +123,12 @@ All steps are documented and executed in `final.ipynb`:
 | Pre-tuned RoBERTa                             | 0.4944   | 0.4970    | 0.9306 | 0.6479   | 0.4944        |
 | Fine-tuned RoBERTa (Twitter)                  | 0.7871   | 0.8148    | 0.7430 | 0.7772   | 0.7871        |
 | Fine-tuned RoBERTa (Rotten Tomatoes)          | 0.5131   | 0.5233    | 0.2946 | 0.3770   | 0.5131        |
-| DistilBERT                                    | 0.4653   | 0.4757    | 0.6792 | 0.5595   | 0.4653        |
+| Pre-tuned DistilBERT                          | 0.4653   | 0.4757    | 0.6792 | 0.5595   | 0.4653        |
 | Fine-tuned DistilBERT (multilingual sentiment)| 0.6445   | 0.6851    | 0.5347 | 0.6006   | 0.6445        |
 | Fine-tuned DistilBERT (Rotten Tomatoes)       | 0.7983   | 0.7880    | 0.8161 | 0.8018   | 0.7983        |
 | Pre-tuned BERT                                | 0.4765   | 0.4194    | 0.1220 | 0.1890   | 0.4765        |
 | Fine-tuned BERT (multilingual sentiment)      | 0.7749   | 0.7504    | 0.8236 | 0.7853   | 0.7749        |
-| *Fine-tuned BERT (Rotten Tomatoes)            | 0.8321   | 0.8417    | 0.8180 | 0.8297   | 0.8321        |
-
-* Best Model
+| **Fine-tuned BERT (Rotten Tomatoes)**         | 0.8321   | 0.8417    | 0.8180 | 0.8297   | 0.8321        |
 
 ### Comparison of Fine-Tuned Models:
 
