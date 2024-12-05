@@ -115,7 +115,7 @@ All steps are documented and executed in `final.ipynb`:
 ## Findings 🔍
 
 ### Model Comparison
-![alt text](model_accuracies.png)
+![alt text](img/model_accuracies.png)
 
 ### Table for Full Model Comparison
 | Model                                         | Accuracy | Precision | Recall | F1 Score | ROC-AUC Score |
