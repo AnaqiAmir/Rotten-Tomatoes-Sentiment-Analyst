@@ -72,45 +72,45 @@ The dataset is divided into three parts:
 ## Project Workflow 📝
 All steps are documented and executed in `final.ipynb`:
 
-### 1. Load Data and Exploratory Data Analysis (EDA):
-- Load the dataset into the environment.
-- Conduct EDA to visualize and analyze the distribution of positive and negative reviews, uncovering insights about the data.
+1. **Load Data and Exploratory Data Analysis (EDA)**:
+    - Load the dataset into the environment.
+    - Conduct EDA to visualize and analyze the distribution of positive and negative reviews, uncovering insights about the data.
 
-### 2. NLTK Baseline:
-- Perform sentiment analysis using the VADER lexicon from the NLTK library.
-- Use the VADER results as a benchmark for comparison against transformer-based models.
+2. **NLTK Baseline**:
+    - Perform sentiment analysis using the VADER lexicon from the NLTK library.
+    - Use the VADER results as a benchmark for comparison against transformer-based models.
 
-### 3. Pre-Tuned Model Evaluations:
-- Evaluate the performance of pre-trained transformer models (**RoBERTa**, **DistilBERT**, **BERT**) without fine-tuning on the dataset.
-- Compare their outputs to pre-trained models tested on other datasets for broader insights.
+3. **Pre-Tuned Model Evaluations**:
+    - Evaluate the performance of pre-trained transformer models (**RoBERTa**, **DistilBERT**, **BERT**) without fine-tuning on the dataset.
+    - Compare their outputs to pre-trained models tested on other datasets for broader insights.
 
-### 4. Data and Model Preparation:
-- `Dataset Class`: Prepare a reusable class for efficient data management and preprocessing.
-- `DataLoaders`: Create DataLoaders for batch processing, ensuring efficient memory and computational resource usage.
-- `SentimentClassifier Class`: Build a custom class for sentiment analysis models with the following features:
-    - Dropout for regularization.
-    - A fully connected layer for consistent output across models.
-- `Training and Validation Functions`: Implement functions to train and validate models effectively.
-- `Plotting Function`: Create a utility to plot accuracy and loss for visual analysis of training progress.
+4. **Data and Model Preparation**:
+    - `Dataset Class`: Prepare a reusable class for efficient data management and preprocessing.
+    - `DataLoaders`: Create DataLoaders for batch processing, ensuring efficient memory and computational resource usage.
+    - `SentimentClassifier Class`: Build a custom class for sentiment analysis models with the following features:
+        - Dropout for regularization.
+        - A fully connected layer for consistent output across models.
+    - `Training and Validation Functions`: Implement functions to train and validate models effectively.
+    - `Plotting Function`: Create a utility to plot accuracy and loss for visual analysis of training progress.
 
-### 5. Training and Validation:
-- Set hyperparameters for tuning, such as learning rate, batch size, and epochs.
-- Train and validate the models (**RoBERTa**, **DistilBERT**, **BERT**) on the dataset.
-- Generate and plot:
-    - Training Metrics: Accuracy and loss over epochs.
-    - Validation Metrics: Accuracy and loss over epochs.
+5. **Training and Validation**:
+    - Set hyperparameters for tuning, such as learning rate, batch size, and epochs.
+    - Train and validate the models (**RoBERTa**, **DistilBERT**, **BERT**) on the dataset.
+    - Generate and plot:
+        - Training Metrics: Accuracy and loss over epochs.
+        - Validation Metrics: Accuracy and loss over epochs.
 
-### 6. Testing:
-- Test all trained models on the test set to evaluate real-world performance.
+6. **Testing**:
+    - Test all trained models on the test set to evaluate real-world performance.
 
-### 7. Model Comparison:
-- Assess the performance of each model based on the following metrics:
-    -  Accuracy: Overall correctness of predictions.
-    - Precision: Model's ability to correctly identify positive cases.
-    - Recall: Model's ability to capture all actual positive cases.
-    - F1-Score: Harmonic mean of precision and recall.
-    - ROC-AUC: Model's ability to distinguish between positive and negative cases.
-- Compare pre-tuned and fine-tuned versions of all models to identify the best-performing approach.
+7. **Model Comparison**:
+    - Assess the performance of each model based on the following metrics:
+        -  Accuracy: Overall correctness of predictions.
+        - Precision: Model's ability to correctly identify positive cases.
+        - Recall: Model's ability to capture all actual positive cases.
+        - F1-Score: Harmonic mean of precision and recall.
+        - ROC-AUC: Model's ability to distinguish between positive and negative cases.
+    - Compare pre-tuned and fine-tuned versions of all models to identify the best-performing approach.
 
 ## Findings 🔍
 
@@ -132,56 +132,46 @@ All steps are documented and executed in `final.ipynb`:
 
 ### Comparison of Fine-Tuned Models:
 
-1. #### BERT Fine-Tuned:
+1. **BERT Fine-Tuned**:
+    - Achieves the best performance across all metrics.
+    - Accuracy: 83.21% and F1-Score: 82.97%, showcasing its strong classification ability.
+    - ROC-AUC: 83.21%, indicating excellent discrimination between positive and negative classes.
 
-- Achieves the best performance across all metrics.
-- Accuracy: 83.21% and F1-Score: 82.97%, showcasing its strong classification ability.
-- ROC-AUC: 83.21%, indicating excellent discrimination between positive and negative classes.
+2. **DistilBERT Fine-Tuned**:
+    - Performs slightly worse than BERT but still maintains high effectiveness.
+    - Accuracy: 79.83% and F1-Score: 80.18%, showing reliable predictions.
 
-2. #### DistilBERT Fine-Tuned:
-
-- Performs slightly worse than BERT but still maintains high effectiveness.
-- Accuracy: 79.83% and F1-Score: 80.18%, showing reliable predictions.
-
-3. #### RoBERTa Fine-Tuned:
-
-- Struggles compared to the other two models.
-- Accuracy: 51.31% and F1-Score: 37.70%, indicating weak sentiment classification on this dataset.
+3. **RoBERTa Fine-Tuned**:
+    - Struggles compared to the other two models.
+    - Accuracy: 51.31% and F1-Score: 37.70%, indicating weak sentiment classification on this dataset.
 
 ### Comparison of Pre-Tuned Models:
 
-1. #### Sentiment Analysis Based Fine-Tuned Models vs Pre-Tuned Versions:
+1. **Sentiment Analysis Based Fine-Tuned Models vs Pre-Tuned Versions**:
+    - Fine-tuning on a task (sentiment analysis) dramatically improves performance across all models, especially **RoBERTa** and **BERT**, which see significant increases in accuracy and F1-Score.
+    - For example, RoBERTa's accuracy jumps from 49.44% (pre-tuned) to 78.71% (fine-tuned).
 
-- Fine-tuning on a task (sentiment analysis) dramatically improves performance across all models, especially **RoBERTa** and **BERT**, which see significant increases in accuracy and F1-Score.
-- For example, RoBERTa's accuracy jumps from 49.44% (pre-tuned) to 78.71% (fine-tuned).
+2. **Pre-Tuned BERT**:
+    - Shows poor performance compared to its fine-tuned counterpart.
+    - Accuracy: 47.65% and F1-Score: 18.90%, highlighting the need for fine-tuning.
 
-2. #### Pre-Tuned BERT:
-
-- Shows poor performance compared to its fine-tuned counterpart.
-- Accuracy: 47.65% and F1-Score: 18.90%, highlighting the need for fine-tuning.
-
-3. #### DistilBERT Pre-Tuned:
-
-- Pre-tuned DistilBERT performs better than pre-tuned BERT but falls short compared to fine-tuned models.
-- Accuracy: 46.53%, indicating that it requires fine-tuning to achieve optimal performance.
+3. **DistilBERT Pre-Tuned**:
+    - Pre-tuned DistilBERT performs better than pre-tuned BERT but falls short compared to fine-tuned models.
+    - Accuracy: 46.53%, indicating that it requires fine-tuning to achieve optimal performance.
 
 ### General Observations:
 
-1. #### Importance of Fine-Tuning:
+1. **Importance of Fine-Tuning**:
+    - Fine-tuning on the Rotten Tomatoes dataset significantly enhances all models' performance, making them more domain-specific and effective for sentiment analysis.
 
-- Fine-tuning on the Rotten Tomatoes dataset significantly enhances all models' performance, making them more domain-specific and effective for sentiment analysis.
+2. **BERT's Dominance**:
+    - BERT outperforms all other models in both fine-tuned and pre-tuned settings, indicating its robustness and versatility.
 
-2. #### BERT's Dominance:
+3. **DistilBERT as a Compact Alternative**:
+    - While DistilBERT lags slightly behind BERT, it serves as a strong lightweight alternative with respectable performance, especially when fine-tuned.
 
-- BERT outperforms all other models in both fine-tuned and pre-tuned settings, indicating its robustness and versatility.
-
-3. #### DistilBERT as a Compact Alternative:
-
-- While DistilBERT lags slightly behind BERT, it serves as a strong lightweight alternative with respectable performance, especially when fine-tuned.
-
-4. #### RoBERTa's Struggles in Pre-Tuned Setting:
-
-- RoBERTa struggles without fine-tuning, likely due to a misalignment between its training data and the Rotten Tomatoes dataset. Fine-tuning helps close this gap significantly.
+4. **RoBERTa's Struggles in Pre-Tuned Setting**:
+    - RoBERTa struggles without fine-tuning, likely due to a misalignment between its training data and the Rotten Tomatoes dataset. Fine-tuning helps close this gap significantly.
 
 ### Summary
 - Fine-tuning is essential for adapting models to specific datasets like Rotten Tomatoes.
