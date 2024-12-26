@@ -40,10 +40,14 @@ All preprocessing, model evaluation, and results comparison are consolidated int
 │   ├── test.csv   # Testing dataset
 │   ├── val.csv    # Validation dataset
 ├── models/
-│   ├── roberta_model.sav  # Fine-tuned RoBERTa model
+│   ├── roberta_model.sav     # Fine-tuned RoBERTa model
 │   ├── distilbert_model.sav  # Fine-tuned DistilBERT model
-│   ├── bert_model.sav  # Fine-tuned BERT model
-├── requirements.txt   # Dependencies for the project
+│   ├── bert_model.sav        # Fine-tuned BERT model
+├── img/
+│   ├── model_testing_accuracies.png  # Testing accuracies graph
+│   ├── testing_times.png             # Testing times graph
+│   ├── training_times.png            # Training times graph
+├── requirements.txt     # Dependencies for the project
 ├── final-report.ipynb   # Main notebook containing the entire
 ```
 
